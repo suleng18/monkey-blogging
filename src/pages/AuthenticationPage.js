@@ -21,6 +21,7 @@ const AuthenticationPageStyles = styled.div`
   }
   .have-account {
     margin-bottom: 20px;
+    font-size: 14px;
     a {
       display: inline-block;
       color: ${(props) => props.theme.primary};
@@ -33,9 +34,11 @@ const AuthenticationPage = ({ children }) => {
   return (
     <AuthenticationPageStyles>
       <div className="container">
-        <NavLink to="/">
-          <img srcSet="/logo.png 2x" alt="monkey-blogging" className="logo" />
-        </NavLink>
+        <div className="text-center">
+          <NavLink to="/" className="inline-block">
+            <img srcSet="/logo.png 2x" alt="monkey-blogging" className="logo" />
+          </NavLink>
+        </div>
         <h1 className="heading">Monkey Blogging</h1>
         {children}
       </div>

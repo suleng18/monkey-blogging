@@ -10,7 +10,7 @@ const ButtonStyles = styled.button`
   line-height: 1;
   border-radius: 8px;
   font-weight: 600;
-  font-size: 18px;
+  font-size: 16px;
   height: ${(props) => props.height || '66px'};
   display: flex;
   justify-content: center;
@@ -25,11 +25,13 @@ const ButtonStyles = styled.button`
     props.kind === 'primary' &&
     css`
       color: white;
-      background-image: linear-gradient(
-        to right bottom,
-        ${(props) => props.theme.primary},
-        ${(props) => props.theme.secondary}
-      );
+      background-color: ${(props) => props.theme.primary};
+    `};
+  ${(props) =>
+    props.kind === 'ghost' &&
+    css`
+      color: ${(props) => props.theme.primary};
+      background-color: rgba(29, 192, 113, 0.1);
     `};
   &:disabled {
     opacity: 0.5;
@@ -65,7 +67,7 @@ Button.propTypes = {
   isLoading: PropTypes.bool,
   onClick: PropTypes.func,
   children: PropTypes.node,
-  kind: PropTypes.oneOf(['primary', 'secondary']),
+  kind: PropTypes.oneOf(['primary', 'secondary', 'ghost']),
 };
 
 export default Button;

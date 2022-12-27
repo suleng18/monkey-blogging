@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Toggle = (props) => {
   const { on, onClick, ...rest } = props;
@@ -15,13 +15,13 @@ const Toggle = (props) => {
       />
       <div
         className={`inline-block w-[70px] h-[42px] relative cursor-pointer rounded-full p-1 transition-all ${
-          on ? 'bg-green-500' : 'bg-gray-300'
+          on ? "bg-green-500" : "bg-gray-300"
         }`}
         {...rest}
       >
         <span
           className={`transition-all w-[34px] h-[34px] bg-white rounded-full inline-block ${
-            on ? 'translate-x-[28px]' : ''
+            on ? "translate-x-[28px]" : ""
           }`}
         ></span>
       </div>

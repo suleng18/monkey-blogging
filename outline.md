@@ -9,15 +9,16 @@
 9. Login UI
 10. Header UI
 11. Homepage UI
--->
-
 12. Details UI
 13. Dashboard UI
-14. Add post Form
-15. Routing dynamic import
-16. Update post Form
-17. Table UI
-18. Category
-19. Users
-20. 404
-21. Checkbox, radio, toggle
+14. Checkbox, radio, toggle
+15. Add new post: overview, upload image, delete image, toggle hot, find category
+
+-->
+
+16. Display(Pagination, Filter), Add, Update & Delete Category
+17. Display(Pagination, Filter), Add, Update & Delete User
+18. Display, Delete Post
+19. Optimize source code(PropTypes, logic, error boundary)
+20. Responsive and optimize UI UX
+21. Update post with ckeditor

@@ -1,6 +1,6 @@
-import { Button } from 'components/button';
-import React from 'react';
-import styled from 'styled-components';
+import { Button } from "components/button";
+import React from "react";
+import styled from "styled-components";
 
 const HomeBannerStyles = styled.div`
   min-height: 520px;
@@ -22,6 +22,7 @@ const HomeBannerStyles = styled.div`
     &-heading {
       font-size: 36px;
       margin-bottom: 20px;
+      font-weight: bold;
     }
     &-desc {
       line-height: 1.75;
@@ -60,9 +61,10 @@ const HomeBanner = () => {
           <div className="banner-content">
             <h1 className="banner-heading">Monkey Blogging</h1>
             <p className="banner-desc">
-              A lifestyle blog is an online platform inspired by a blogger's daily life, personal
-              interests and areas of expertise, and usually includes content in more than one niche
-              or interest.
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Laudantium magnam similique accusantium natus esse facilis!
+              Quaerat voluptates possimus dolorem officiis pariatur, repellat,
+              cupiditate porro, quidem molestiae impedit laudantium neque quo!
             </p>
             <Button to="/sign-up" kind="secondary" className="banner-button">
               Get started

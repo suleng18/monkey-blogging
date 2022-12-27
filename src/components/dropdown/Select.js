@@ -1,11 +1,11 @@
-import React from 'react';
-import { useDropdown } from './dropdown-context';
+import React from "react";
+import { useDropdown } from "./dropdown-context";
 
-const Select = ({ placeholder = '' }) => {
+const Select = ({ placeholder = "", className = "" }) => {
   const { toggle, show } = useDropdown();
   return (
     <div
-      className="flex items-center justify-between p-5 bg-[#E7ECF3] rounded cursor-pointer font-medium"
+      className={`flex items-center justify-between py-[15px] px-[25px] bg-white border border-grayf1 rounded-lg cursor-pointer font-medium ${className}`}
       onClick={toggle}
     >
       <span>{placeholder}</span>
@@ -19,7 +19,11 @@ const Select = ({ placeholder = '' }) => {
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 15l7-7 7 7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 15l7-7 7 7"
+            />
           </svg>
         ) : (
           <svg
@@ -30,7 +34,11 @@ const Select = ({ placeholder = '' }) => {
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M19 9l-7 7-7-7"
+            />
           </svg>
         )}
       </span>

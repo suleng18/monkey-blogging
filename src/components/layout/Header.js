@@ -1,20 +1,20 @@
-import { Button } from 'components/button';
-import { useAuth } from 'contexts/auth-context';
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import styled from 'styled-components';
+import { Button } from "components/button";
+import { useAuth } from "contexts/auth-context";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 const menuLinks = [
   {
-    url: '/',
-    title: 'Home',
+    url: "/",
+    title: "Home",
   },
   {
-    url: '/blog',
-    title: 'Blog',
+    url: "/blog",
+    title: "Blog",
   },
   {
-    url: '/contact',
-    title: 'Contact',
+    url: "/contact",
+    title: "Contact",
   },
 ];
 
@@ -23,6 +23,11 @@ const HeaderStyles = styled.header`
   .header-main {
     display: flex;
     align-items: center;
+  }
+  .header-auth {
+    display: flex;
+    align-items: center;
+    gap: 20px;
   }
   .logo {
     display: block;
@@ -59,20 +64,6 @@ const HeaderStyles = styled.header`
     transform: translateY(-50%);
     right: 25px;
   }
-  .header-welcome {
-    padding: 15px 20px;
-    background: linear-gradient(319deg, rgba(34, 193, 195, 1) 0%, rgba(253, 187, 45, 1) 100%);
-    border-radius: 8px;
-    color: white;
-
-    span {
-      font-weight: 600;
-    }
-
-    strong {
-      color: white;
-    }
-  }
   @media screen and (max-width: 1023.98px) {
     .logo {
       max-width: 30px;
@@ -85,11 +76,6 @@ const HeaderStyles = styled.header`
     }
   }
 `;
-function getLastName(name) {
-  if (!name) return 'User';
-  const length = name.split(' ').length;
-  return name.split(' ')[length - 1];
-}
 const Header = () => {
   const { userInfo } = useAuth();
   return (
@@ -109,7 +95,11 @@ const Header = () => {
             ))}
           </ul>
           <div className="search">
-            <input type="text" className="search-input" placeholder="Search posts..." />
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search posts..."
+            />
             <span className="search-icon">
               <svg
                 width="18"
@@ -142,13 +132,24 @@ const Header = () => {
             </span>
           </div>
           {!userInfo ? (
-            <Button type="button" height="56px" className="header-button" to="/sign-up">
-              Sign Up
+            <Button
+              type="button"
+              height="56px"
+              className="header-button"
+              to="/sign-in"
+            >
+              Login
             </Button>
           ) : (
-            <div className="header-auth header-welcome">
-              <span>Welcome , </span>
-              <strong className="text-primary">{getLastName(userInfo?.displayName)}</strong>
+            <div className="header-auth">
+              <Button
+                type="button"
+                height="56px"
+                className="header-button"
+                to="/dashboard"
+              >
+                Dashboard
+              </Button>
             </div>
           )}
         </div>

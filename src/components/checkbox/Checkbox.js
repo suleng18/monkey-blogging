@@ -1,16 +1,15 @@
-import React from 'react';
-import { useController } from 'react-hook-form';
+import React from "react";
+import { useController } from "react-hook-form";
 
 const Checkbox = ({ checked, children, control, name, ...rest }) => {
   const { field } = useController({
     control,
     name,
-    defaultValue: '',
+    defaultValue: "",
   });
   return (
     <label>
       <input
-        onChange={() => {}}
         checked={checked}
         type="checkbox"
         className="hidden-input"
@@ -20,7 +19,7 @@ const Checkbox = ({ checked, children, control, name, ...rest }) => {
       <div className="flex items-center gap-x-3 font-medium cursor-pointer">
         <div
           className={`w-7 h-7 rounded flex items-center justify-center ${
-            checked ? 'bg-green-400 text-white' : 'bg-gray-200 text-transparent'
+            checked ? "bg-green-400 text-white" : "bg-gray-200 text-transparent"
           }`}
         >
           <svg
@@ -31,7 +30,11 @@ const Checkbox = ({ checked, children, control, name, ...rest }) => {
             stroke="currentColor"
             strokeWidth="2"
           >
-            <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M5 13l4 4L19 7"
+            />
           </svg>
         </div>
         <span>{children}</span>
