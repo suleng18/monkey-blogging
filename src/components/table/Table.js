@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 const TableStyles = styled.div`
   overflow-x: auto;
   background-color: white;
@@ -21,6 +21,7 @@ const TableStyles = styled.div`
   }
   td {
     padding: 15px 30px;
+    white-space: nowrap;
   }
   tbody {
   }

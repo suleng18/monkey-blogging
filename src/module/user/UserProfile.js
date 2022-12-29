@@ -1,16 +1,17 @@
-import { Button } from "components/button";
-import { Field } from "components/field";
-import ImageUpload from "components/image/ImageUpload";
-import { Input } from "components/input";
-import { Label } from "components/label";
-import DashboardHeading from "module/dashboard/DashboardHeading";
-import React from "react";
-import { useForm } from "react-hook-form";
+import { Button } from 'components/button';
+import { Field } from 'components/field';
+import ImageUpload from 'components/image/ImageUpload';
+import { Input } from 'components/input';
+import { Label } from 'components/label';
+import DashboardHeading from 'module/dashboard/DashboardHeading';
+import React from 'react';
+import { useForm } from 'react-hook-form';
 
 const UserProfile = () => {
   const { control } = useForm({
-    mode: "onChange",
+    mode: 'onChange',
   });
+
   return (
     <div>
       <DashboardHeading
@@ -24,37 +25,21 @@ const UserProfile = () => {
         <div className="form-layout">
           <Field>
             <Label>Fullname</Label>
-            <Input
-              control={control}
-              name="fullname"
-              placeholder="Enter your fullname"
-            ></Input>
+            <Input control={control} name="fullname" placeholder="Enter your fullname"></Input>
           </Field>
           <Field>
             <Label>Username</Label>
-            <Input
-              control={control}
-              name="username"
-              placeholder="Enter your username"
-            ></Input>
+            <Input control={control} name="username" placeholder="Enter your username"></Input>
           </Field>
         </div>
         <div className="form-layout">
           <Field>
             <Label>Date of Birth</Label>
-            <Input
-              control={control}
-              name="birthday"
-              placeholder="dd/mm/yyyy"
-            ></Input>
+            <Input control={control} name="birthday" placeholder="dd/mm/yyyy"></Input>
           </Field>
           <Field>
             <Label>Mobile Number</Label>
-            <Input
-              control={control}
-              name="phone"
-              placeholder="Enter your phone number"
-            ></Input>
+            <Input control={control} name="phone" placeholder="Enter your phone number"></Input>
           </Field>
         </div>
         <div className="form-layout">

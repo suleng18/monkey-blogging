@@ -29,6 +29,7 @@ const CategoryManage = () => {
   const [filter, setFilter] = useState(undefined);
   const [lastDoc, setLastDoc] = useState();
   const [total, setTotal] = useState(0);
+
   const handleLoadMoreCategory = async () => {
     const nextRef = query(
       collection(db, 'categories'),
@@ -50,6 +51,7 @@ const CategoryManage = () => {
     const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
     setLastDoc(lastVisible);
   };
+
   useEffect(() => {
     async function fetchData() {
       const colRef = collection(db, 'categories');
@@ -163,5 +165,4 @@ const CategoryManage = () => {
     </div>
   );
 };
-
 export default CategoryManage;

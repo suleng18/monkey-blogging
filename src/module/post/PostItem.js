@@ -1,9 +1,9 @@
-import React from "react";
-import styled from "styled-components";
-import PostCategory from "./PostCategory";
-import PostImage from "./PostImage";
-import PostMeta from "./PostMeta";
-import PostTitle from "./PostTitle";
+import React from 'react';
+import styled from 'styled-components';
+import PostCategory from './PostCategory';
+import PostImage from './PostImage';
+import PostMeta from './PostMeta';
+import PostTitle from './PostTitle';
 const PostItemStyles = styled.div`
   display: flex;
   flex-direction: column;
@@ -42,9 +42,7 @@ const PostItem = () => {
         to="/"
       ></PostImage>
       <PostCategory>ReactJS</PostCategory>
-      <PostTitle>
-        The complete guide to learn new languages for beginners
-      </PostTitle>
+      <PostTitle>The complete guide to learn new languages for beginners</PostTitle>
       <PostMeta></PostMeta>
     </PostItemStyles>
   );
