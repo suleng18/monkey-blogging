@@ -1,13 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import "reset";
+@import 'reset';
+@import 'content';
 @layer base {
   body {
     line-height: 1.5;
     // -webkit-font-smoothing: antialiased;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    font-family: "Epilogue", sans-serif;
+    font-family: 'Epilogue', sans-serif;
     font-size: 16px;
     color: #232323;
   }
@@ -60,53 +61,7 @@ a {
     padding-bottom: 60px;
   }
 }
-.entry-content {
-  font-size: 16px;
-  h2,
-  h3,
-  h4 {
-    font-weight: bold;
-    margin-bottom: 20px;
-  }
-  h2 {
-    font-size: 32px;
-  }
-  h3 {
-    font-size: 26px;
-  }
-  h4 {
-    font-size: 22px;
-  }
-  p {
-    margin-bottom: 20px;
-    line-height: 2;
-  }
-  figure {
-    margin-bottom: 20px;
-  }
-  figure img {
-    border-radius: 20px;
-    margin-bottom: 10px;
-  }
-  figcaption {
-    text-align: center;
-    font-style: italic;
-    font-size: 14px;
-    color: #6b6b6b;
-  }
-  @media screen and (max-width: 1023.98px) {
-    font-size: 14px;
-    h2 {
-      font-size: 26px;
-    }
-    h3 {
-      font-size: 24px;
-    }
-    h4 {
-      font-size: 20px;
-    }
-  }
-}
+
 .hidden-input {
   border: 0;
   clip: rect(0 0 0 0);
@@ -120,4 +75,14 @@ a {
 }
 .form-layout {
   @apply grid grid-cols-1 lg:grid-cols-2 lg:gap-x-10 mb-5 lg:mb-10;
+}
+
+.quill {
+  position: relative;
+  .ql-toolbar {
+    position: sticky;
+    top: 0;
+    background-color: white;
+    z-index: 10;
+  }
 }
