@@ -4,6 +4,7 @@ import { Field, FieldCheckboxes } from 'components/field';
 import ImageUpload from 'components/image/ImageUpload';
 import { Input } from 'components/input';
 import { Label } from 'components/label';
+import { Textarea } from 'components/textarea';
 import { db } from 'firebase-app/firebase-config';
 import { doc, getDoc, updateDoc } from 'firebase/firestore';
 import useFirebaseImage from 'hooks/useFirebaseImage';
@@ -183,6 +184,13 @@ const UserUpdate = () => {
             </FieldCheckboxes>
           </Field>
         </div>
+        <div className="form-layout">
+          <Field>
+            <Label>Description</Label>
+            <Textarea name="description" control={control}></Textarea>
+          </Field>
+        </div>
+
         <Button
           kind="primary"
           type="submit"

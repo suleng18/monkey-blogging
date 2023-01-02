@@ -26,9 +26,16 @@ Quill.register('modules/imageUploader', ImageUploader);
 const PostUpdate = () => {
   const [params] = useSearchParams();
   const postId = params.get('id');
-  const [loading, setLoading] = useState(false);
   const [content, setContent] = useState('');
-  const { handleSubmit, control, setValue, watch, reset, getValues } = useForm({
+  const {
+    handleSubmit,
+    control,
+    setValue,
+    watch,
+    reset,
+    getValues,
+    formState: { isValid, isSubmitting },
+  } = useForm({
     mode: 'onChange',
   });
 
@@ -95,6 +102,7 @@ const PostUpdate = () => {
   };
 
   const updatePostHandler = async (values) => {
+    if (!isValid) return;
     const docRef = doc(db, 'posts', postId);
     await updateDoc(docRef, {
       ...values,
@@ -221,7 +229,12 @@ const PostUpdate = () => {
             </FieldCheckboxes>
           </Field>
         </div>
-        <Button type="submit" className="mx-auto w-[250px]" isLoading={loading} disabled={loading}>
+        <Button
+          type="submit"
+          className="mx-auto w-[250px]"
+          isLoading={isSubmitting}
+          disabled={isSubmitting}
+        >
           Update post
         </Button>
       </form>
@@ -230,4 +243,3 @@ const PostUpdate = () => {
 };
 
 export default PostUpdate;
-// 347

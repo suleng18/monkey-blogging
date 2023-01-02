@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import Heading from 'components/layout/Heading';
 import Layout from 'components/layout/Layout';
 import { db } from 'firebase-app/firebase-config';
@@ -7,14 +6,12 @@ import PostCategory from 'module/post/PostCategory';
 import PostImage from 'module/post/PostImage';
 import PostItem from 'module/post/PostItem';
 import PostMeta from 'module/post/PostMeta';
-import React from 'react';
-import { useState } from 'react';
-import { useEffect } from 'react';
-import { useParams, useSearchParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import styled from 'styled-components';
 import PageNotFound from './PageNotFound';
 import parse from 'html-react-parser';
-
+import AuthorBox from 'components/author/AuthorBox';
 const PostDetailsPageStyles = styled.div`
   padding-bottom: 100px;
   .post {
@@ -105,7 +102,6 @@ const PostDetailsPageStyles = styled.div`
 const PostDetailsPage = () => {
   const { slug } = useParams();
   const [postInfo, setPostInfo] = useState({});
-
   useEffect(() => {
     async function fetchData() {
       if (!slug) return;
@@ -118,9 +114,8 @@ const PostDetailsPage = () => {
     }
     fetchData();
   }, [slug]);
-
-  if (!postInfo.title) return null;
-  if (!slug) return <PageNotFound></PageNotFound>;
+  if (!slug || !postInfo.title) return <PageNotFound></PageNotFound>;
+  const { user } = postInfo;
   return (
     <PostDetailsPageStyles>
       <Layout>
@@ -134,16 +129,8 @@ const PostDetailsPage = () => {
             </div>
           </div>
           <div className="post-content">
-            <div className="entry-content">{parse(postInfo.content)}</div>
-            <div className="author">
-              <div className="author-image">
-                <img src={postInfo.user?.avatar} alt="" />
-              </div>
-              <div className="author-content">
-                <h3 className="author-name">{postInfo.user?.fullname}</h3>
-                <p className="author-desc">{postInfo.user?.description}</p>
-              </div>
-            </div>
+            <div className="entry-content">{parse(postInfo.content || '')}</div>
+            <AuthorBox userId={user.id}></AuthorBox>
           </div>
           <div className="post-related">
             <Heading>Bài viết liên quan</Heading>
