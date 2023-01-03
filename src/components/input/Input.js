@@ -1,14 +1,14 @@
-import React from "react";
-import styled from "styled-components";
-import { useController } from "react-hook-form";
+import React from 'react';
+import styled from 'styled-components';
+import { useController } from 'react-hook-form';
+import PropTypes from 'prop-types';
 
 const InputStyles = styled.div`
   position: relative;
   width: 100%;
   input {
     width: 100%;
-    padding: ${(props) =>
-      props.hasIcon ? "15px 60px 15px 25px" : "15px 25px"};
+    padding: ${(props) => (props.hasIcon ? '15px 60px 15px 25px' : '15px 25px')};
     background-color: transparent;
     border: 1px solid ${(props) => props.theme.grayf1};
     border-radius: 8px;
@@ -38,11 +38,11 @@ const InputStyles = styled.div`
  * @param {*} control - control from react hook form
  * @returns Input
  */
-const Input = ({ name = "", type = "text", children, control, ...props }) => {
+const Input = ({ name = '', type = 'text', children, control, ...props }) => {
   const { field } = useController({
     control,
     name,
-    defaultValue: "",
+    defaultValue: '',
   });
   return (
     <InputStyles hasIcon={children ? true : false}>
@@ -50,6 +50,13 @@ const Input = ({ name = "", type = "text", children, control, ...props }) => {
       {children ? <div className="input-icon">{children}</div> : null}
     </InputStyles>
   );
+};
+
+Input.propTypes = {
+  name: PropTypes.string.isRequired,
+  type: PropTypes.string,
+  children: PropTypes.any,
+  control: PropTypes.any.isRequired,
 };
 
 export default Input;

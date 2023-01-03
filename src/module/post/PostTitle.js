@@ -1,6 +1,6 @@
-import React from "react";
-import { NavLink } from "react-router-dom";
-import styled, { css } from "styled-components";
+import React from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 const PostTitleStyles = styled.h3`
   font-weight: 600;
   line-height: 1.5;
@@ -9,7 +9,7 @@ const PostTitleStyles = styled.h3`
     display: block;
   }
   ${(props) =>
-    props.size === "normal" &&
+    props.size === 'normal' &&
     css`
       font-size: 18px;
       @media screen and (max-width: 1023.98px) {
@@ -17,7 +17,7 @@ const PostTitleStyles = styled.h3`
       }
     `};
   ${(props) =>
-    props.size === "big" &&
+    props.size === 'big' &&
     css`
       font-size: 22px;
       @media screen and (max-width: 1023.98px) {
@@ -26,10 +26,10 @@ const PostTitleStyles = styled.h3`
     `};
 `;
 
-const PostTitle = ({ children, className = "", size = "normal", to = "/" }) => {
+const PostTitle = ({ children, className = '', size = 'normal', to = '' }) => {
   return (
     <PostTitleStyles size={size} className={`post-title ${className}`}>
-      <NavLink to={to}>{children}</NavLink>
+      <Link to={`/${to}`}>{children}</Link>
     </PostTitleStyles>
   );
 };
