@@ -1,6 +1,6 @@
-import { Button } from "components/button";
-import React from "react";
-import styled from "styled-components";
+import { Button } from 'components/button';
+import React from 'react';
+import styled from 'styled-components';
 
 const HomeBannerStyles = styled.div`
   min-height: 520px;
@@ -61,10 +61,9 @@ const HomeBanner = () => {
           <div className="banner-content">
             <h1 className="banner-heading">Monkey Blogging</h1>
             <p className="banner-desc">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Laudantium magnam similique accusantium natus esse facilis!
-              Quaerat voluptates possimus dolorem officiis pariatur, repellat,
-              cupiditate porro, quidem molestiae impedit laudantium neque quo!
+              Whether you're sharing your expertise, breaking news, or an idea you've come up with,
+              you've got a companion on Blogger. Sign up to discover why millions of people post
+              their passion content here.
             </p>
             <Button to="/sign-up" kind="secondary" className="banner-button">
               Get started
